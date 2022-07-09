@@ -6,11 +6,16 @@ import throttle from 'js-math-and-ui-utils/jsUtils/throttle'
 
 
 let mainDom, scrollingElements
-
+let lastWheelY = 0
 
 const onScroll = (e) => {
-  // console.log('scroll', mainDom.scrollHeight, mainDom.scrollTop)
   const current = mainDom.scrollTop
+  if (lastWheelY === current) {
+    return
+  }
+  lastWheelY = current
+
+  console.log('scroll', mainDom.scrollHeight, mainDom.scrollTop)
 
   for (const el of scrollingElements) {
     if (current < el.from) {
@@ -50,11 +55,14 @@ const initScroll = () => {
     from: parseInt(el.dataset.scrollFrom),
     to: parseInt(el.dataset.scrollTo),
   }))
+  const maxScroll = Math.max(...scrollingElements.map(el => el.to))
+  const pageHeight = maxScroll + window.innerHeight
+  document.querySelector('section').style.height = `${pageHeight}px`
 }
 
 const init = () => {
   mainDom = document.querySelector('main')
-  mainDom.addEventListener('scroll', throttle(onScroll, 1000 / 50))
+  mainDom.addEventListener('wheel', throttle(onScroll, 1000 / 60))
 
   initBlobs()
   initScroll()

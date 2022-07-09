@@ -29,7 +29,6 @@ main {
 
 
 section {
-  min-height: 500%;
   z-index: 100;
   position: relative;
 }
@@ -57,20 +56,20 @@ main > img.blob {
   0% {
     width: 200px;
     height: 200px;
-    top: calc(100vh + 200px);
+    top: calc(100vh + 100px);
   }
-  30% {
+  20% {
     top: 50vh;
     width: 200px;
     height: 200px;
   }
-  70% {
+  80% {
     top: 50vh;
     width: 400px;
     height: 400px;
   }
   100% {
-    top: -500px;
+    top: -200px;
     width: 400px;
     height: 400px;
   }
