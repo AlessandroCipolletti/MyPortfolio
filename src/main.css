@@ -2,11 +2,14 @@
   margin: 0px;
   padding: 0px;
 }
+body {
+  overflow: hidden;
+}
 .displayNone {
   display: none;
 }
-body {
-  overflow: hidden;
+.transparent {
+  opacity: 0;
 }
 main {
   background-color: white;
@@ -15,22 +18,10 @@ main {
   width: 100vw;
   font-size: 10px;
 }
-/* #overlay {
-  z-index: 50;
-  background-color: rgba(255, 255, 255, 0.5);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 100vh;
-} */
 
-
-section {
-  z-index: 100;
+#scroller {
   position: relative;
+  z-index: 100;
 }
 
 main > img.blob {
@@ -39,38 +30,69 @@ main > img.blob {
   /* filter: blur(5px); */
 }
 
-.scrolling {
-  animation-duration: 100s;
+.parallax {
+  animation-duration: var(--maxDelay);
   animation-delay: 0s;
   animation-play-state: paused;
   animation-timing-function: linear;
 }
-
-.profilPic {
-  animation-name: profilePicAnim;
-  position: absolute;
-  left: 30%;
-  transform: translate3d(-50%, -50%, 0px);
+.card.parallax:not(.ongoing, .card1) {
+  display: none;
 }
-@keyframes profilePicAnim {
+
+.card {
+  /* TODO responsive desktop and mobile */
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  padding: 10%;
+  box-sizing: border-box;
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0px);
+  left: 50%;
+  transition: opacity 1s;
+}
+
+.card1 {
+  animation-name: card1Anim;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@keyframes card1Anim {
   0% {
-    width: 200px;
-    height: 200px;
-    top: calc(100vh + 100px);
-  }
-  20% {
-    top: 50vh;
-    width: 200px;
-    height: 200px;
-  }
-  80% {
-    top: 50vh;
-    width: 400px;
-    height: 400px;
+    top: 50%;
   }
   100% {
-    top: -200px;
-    width: 400px;
-    height: 400px;
+    top: -50vh;
   }
+}
+.profilPic {
+  width: 300px;
+}
+
+.card2 {
+  animation-name: card2Anim;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@keyframes card2Anim {
+  0% {
+    top: 150vh;
+  }
+  25% {
+    top: 50vh;
+  }
+  75% {
+    top: 50vh;
+  }
+  100% {
+    top: -50vh;
+  }
+}
+.profilPic {
+  width: 300px;
 }

@@ -15,15 +15,23 @@
     <script src="./main.js" type="module"></script>
   </head>
   <body>
-    <main>
+    <main align="center">
       <img src="./static/imgs/blob1.svg" class="blob displayNone" id="blob1" />
       <img src="./static/imgs/blob2.svg" class="blob displayNone" id="blob2" />
       <img src="./static/imgs/blob3.svg" class="blob displayNone" id="blob3" />
-      <!-- <div id="overlay"></div> -->
 
-      <section>
+      <section id="scroller"></section>
+
+      <section class="card card1 parallax transparent" data-scroll-from="1" data-scroll-to="2000">
+        <img class="profilPic" src="./static/imgs/myself.webp" />
+        <h1>Hi!</h1>
       </section>
-      <img class="scrolling profilPic" data-scroll-from="1" data-scroll-to="5000" src="./static/imgs/myself.webp" />
+
+      <section class="card card2 parallax" data-scroll-from="1" data-scroll-to="8000">
+        <img class="profilPic" src="./static/imgs/myself.webp" />
+        <h1>Hi!</h1>
+      </section>
+
     </main>
   </body>
 </html>

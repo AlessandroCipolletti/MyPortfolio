@@ -1,12 +1,18 @@
 import './main.css'
+import { isTablet, isMobile, isBrowser } from 'mobile-device-detect'
 import animateElement from 'js-math-and-ui-utils/animationsUtils/animateElement'
 import getRandomNumber from 'js-math-and-ui-utils/mathUtils/getRandomNumber'
 import roundNumber from 'js-math-and-ui-utils/mathUtils/roundNumber'
 import throttle from 'js-math-and-ui-utils/jsUtils/throttle'
 
 
-let mainDom, scrollingElements
+const MAX_DELAY = 100 // seconds
+const FPS = 60
+
+let mainDom, parallaxElements
 let lastWheelY = 0
+
+const delay = (time) => new Promise((resolve) => setTimeout(resolve, time))
 
 const onScroll = (e) => {
   const current = mainDom.scrollTop
@@ -14,16 +20,19 @@ const onScroll = (e) => {
     return
   }
   lastWheelY = current
+  // console.log('scroll', mainDom.scrollHeight, mainDom.scrollTop)
 
-  console.log('scroll', mainDom.scrollHeight, mainDom.scrollTop)
-
-  for (const el of scrollingElements) {
+  for (const el of parallaxElements) {
     if (current < el.from) {
       el.dom.style.animationDelay = '-0s'
+      el.dom.classList.remove('ongoing')
     } else if (current >= el.to) {
       el.dom.style.animationDelay = '-100s'
+      el.dom.classList.remove('ongoing')
     } else {
-      el.dom.style.animationDelay = `-${roundNumber(100 * ((current - el.from) / (el.to - el.from)), 5)}s`
+      const delay = roundNumber(MAX_DELAY * ((current - el.from) / (el.to - el.from)), 5)
+      el.dom.style.animationDelay = `-${delay}s`
+      el.dom.classList.add('ongoing')
     }
   }
 }
@@ -36,36 +45,47 @@ const initBlobs = () => {
     blob.classList.remove('displayNone')
     animateElement(blob, 'move', [
       { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 0 },
-      { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 0.33 },
-      { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 0.66 },
+      { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 0.25 },
+      { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 0.50 },
+      { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 0.75 },
       { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 1 },
-    ], getRandomNumber(90, 130, 0) * 1000, {
+    ], getRandomNumber(120, 160, 0) * 1000, {
       iterations: Infinity,
       direction: 'alternate',
       easing: 'linear',
+      commitResult: true,
     })
   }
 }
 
 const initScroll = () => {
-  scrollingElements = Array.from(
-    document.querySelectorAll('.scrolling')
+  parallaxElements = Array.from(
+    document.querySelectorAll('.parallax')
   ).map(el => ({
     dom: el,
     from: parseInt(el.dataset.scrollFrom),
     to: parseInt(el.dataset.scrollTo),
   }))
-  const maxScroll = Math.max(...scrollingElements.map(el => el.to))
+  const maxScroll = Math.max(...parallaxElements.map(el => el.to))
   const pageHeight = maxScroll + window.innerHeight
   document.querySelector('section').style.height = `${pageHeight}px`
 }
 
-const init = () => {
+const init = async() => {
   mainDom = document.querySelector('main')
-  mainDom.addEventListener('wheel', throttle(onScroll, 1000 / 60))
+  if (!isTablet && !isMobile && isBrowser) {
+    window.addEventListener('wheel', throttle(onScroll, 1000 / FPS))
+  } else {
+    mainDom.addEventListener('scroll', throttle(onScroll, 1000 / FPS))
+  }
+
+  document.documentElement.style.setProperty('--maxDelay', `${MAX_DELAY}s`)
 
   initBlobs()
   initScroll()
+
+  await delay(300)
+  document.querySelector('.card1').classList.remove('transparent')
 }
 
 document.onreadystatechange = () => {

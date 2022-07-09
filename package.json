@@ -29,6 +29,7 @@
     "parcel": "latest"
   },
   "dependencies": {
-    "js-math-and-ui-utils": "^1.1.21"
+    "js-math-and-ui-utils": "^1.1.21",
+    "mobile-device-detect": "^0.4.3"
   }
 }
