@@ -1,0 +1,77 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.displayNone {
+  display: none;
+}
+body {
+  overflow: hidden;
+}
+main {
+  background-color: white;
+  overflow: scroll;
+  height: 100vh;
+  width: 100vw;
+  font-size: 10px;
+}
+/* #overlay {
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+} */
+
+
+section {
+  min-height: 500%;
+  z-index: 100;
+  position: relative;
+}
+
+main > img.blob {
+  position: absolute;
+  opacity: 0.3;
+  /* filter: blur(5px); */
+}
+
+.scrolling {
+  animation-duration: 100s;
+  animation-delay: 0s;
+  animation-play-state: paused;
+  animation-timing-function: linear;
+}
+
+.profilPic {
+  animation-name: profilePicAnim;
+  position: absolute;
+  left: 30%;
+  transform: translate3d(-50%, -50%, 0px);
+}
+@keyframes profilePicAnim {
+  0% {
+    width: 200px;
+    height: 200px;
+    top: calc(100vh + 200px);
+  }
+  30% {
+    top: 50vh;
+    width: 200px;
+    height: 200px;
+  }
+  70% {
+    top: 50vh;
+    width: 400px;
+    height: 400px;
+  }
+  100% {
+    top: -500px;
+    width: 400px;
+    height: 400px;
+  }
+}
