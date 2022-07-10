@@ -84,7 +84,7 @@ const init = async() => {
   initBlobs()
   initScroll()
 
-  await delay(300)
+  await delay(500)
   document.querySelector('.card1').classList.remove('transparent')
 }
 

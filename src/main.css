@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 * {
   margin: 0px;
   padding: 0px;
+  font-family: sans-serif;
 }
 body {
   overflow: hidden;
@@ -9,7 +12,7 @@ body {
   display: none;
 }
 .transparent {
-  opacity: 0;
+  opacity: 0 !important;
 }
 main {
   background-color: white;
@@ -35,6 +38,7 @@ main > img.blob {
   animation-delay: 0s;
   animation-play-state: paused;
   animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }
 .card.parallax:not(.ongoing, .card1) {
   display: none;
@@ -53,12 +57,14 @@ main > img.blob {
   transition: opacity 1s;
 }
 
+/* CARD 1 */
 .card1 {
   animation-name: card1Anim;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  /* background-color: rgba(0, 255, 0, 0.1); */
 }
 @keyframes card1Anim {
   0% {
@@ -71,28 +77,106 @@ main > img.blob {
 .profilPic {
   width: 300px;
 }
+#hand {
+  font-size: 100px;
+  animation-name: handAnim;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: 50% 100%;
+}
+@keyframes handAnim {
+  0% {
+    transform: none;
+  }
+  20% {
+    transform: none;
+  }
+  25%, 45% {
+    transform: rotate(-15deg);
+  }
+  35%, 55% {
+    transform: rotate(+15deg);
+  }
+  60% {
+    transform: none;
+  }
+}
+.card1 h2 {
+  font-size: 130px;
+  font-family: 'Sacramento', cursive;
+  margin-bottom: -30px;
+}
 
+/* CARD 2 */
 .card2 {
   animation-name: card2Anim;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  /* background: linear-gradient(to top, rgba(51, 51, 51, 0.4) 0%, rgba(255, 255, 255, 0) 100%); */
+  /* -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); */
 }
 @keyframes card2Anim {
   0% {
     top: 150vh;
+    background-color: rgba(255, 255, 255, 0);
   }
-  25% {
+  20% {
     top: 50vh;
+    background-color: rgba(255, 255, 255, 0);
   }
   75% {
     top: 50vh;
   }
   100% {
     top: -50vh;
+    background-color: rgba(61, 61, 61, 0.6);
   }
 }
-.profilPic {
-  width: 300px;
+.work {
+  width: 500px;
+  animation-name: card2ImgAnim;
+}
+@keyframes card2ImgAnim {
+  0% {
+    opacity: 1;
+    width: 500px;
+  }
+  100% {
+    opacity: 0.4;
+    width: 400px;
+  }
+}
+
+.card2 h1 {
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 80px;
+  font-weight: 100;
+  color: #333;
+  animation-name: card2Text1Anim;
+}
+@keyframes card2Text1Anim {
+  0% {
+    opacity: 0;
+    transform: scale(100);
+  }
+  5% {
+    opacity: 1;
+    transform: scale(100);
+  }
+  50% {
+  transform: scale(4);
+  }
+  59% {
+    transform: scale(1);
+    text-shadow: none;
+  }
+  60%, 100% {
+    transform: scale(1);
+    text-shadow: 0px 0px 30px #EEEEEE;
+  }
 }
