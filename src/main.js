@@ -63,8 +63,8 @@ const initScroll = () => {
     document.querySelectorAll('.parallax')
   ).map(el => ({
     dom: el,
-    from: parseInt(el.dataset.scrollFrom),
-    to: parseInt(el.dataset.scrollTo),
+    from: parseFloat(el.dataset.scrollFrom) * window.innerHeight,
+    to: parseFloat(el.dataset.scrollTo) * window.innerHeight,
   }))
   const maxScroll = Math.max(...parallaxElements.map(el => el.to))
   const pageHeight = maxScroll + window.innerHeight
