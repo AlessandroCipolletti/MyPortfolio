@@ -7,7 +7,7 @@ import throttle from 'js-math-and-ui-utils/jsUtils/throttle'
 
 
 const MAX_DELAY = 100 // seconds
-const FPS = 60
+const FPS = 50
 
 let mainDom, parallaxElements
 let lastWheelY = 0
@@ -68,7 +68,7 @@ const initScroll = () => {
   }))
   const maxScroll = Math.max(...parallaxElements.map(el => el.to))
   const pageHeight = maxScroll + window.innerHeight
-  document.querySelector('section').style.height = `${pageHeight}px`
+  document.querySelector('#scroller').style.height = `${pageHeight}px`
 }
 
 const init = async() => {
