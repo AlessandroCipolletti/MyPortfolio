@@ -24,6 +24,9 @@ main {
 
 #scroller {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   z-index: 100;
 }
 
@@ -46,14 +49,11 @@ main > img.blob {
 
 .card {
   /* TODO responsive desktop and mobile */
-  position: absolute;
   width: 100vw;
   height: 100vh;
   padding: 2.5%;
   box-sizing: border-box;
-  position: absolute;
-  transform: translate3d(-50%, -50%, 0px);
-  left: 50%;
+  position: sticky;
   transition: opacity 1s;
 }
 
@@ -68,10 +68,10 @@ main > img.blob {
 }
 @keyframes card1Anim {
   0% {
-    top: 50%;
+    top: 0vh;
   }
   100% {
-    top: -50vh;
+    top: -100vh;
   }
 }
 .profilPic {
@@ -122,22 +122,24 @@ main > img.blob {
 }
 @keyframes card2Anim {
   0% {
-    top: 150vh;
+    top: 100vh;
     background-color: rgba(255, 255, 255, 0);
   }
   calc(1 * 100% / 7) {
-    top: 50vh;
+    top: 0vh;
+  }
+  calc(1.5 * 100% / 7) {
     background-color: rgba(255, 255, 255, 0);
   }
   70% {
-    background-color: rgba(61, 61, 61, 1);
+    background-color: rgba(61, 61, 61, 0.8);
   }
   calc(6 * 100% / 7) {
-    top: 50vh;
+    top: 0vh;
   }
   100% {
-    top: -50vh;
-    background-color: rgba(61, 61, 61, 1);
+    top: -100vh;
+    background-color: rgba(61, 61, 61, 0.8);
   }
 }
 
@@ -186,38 +188,41 @@ main > img.blob {
 .card2Title {
   position: absolute;
   font-family: sans-serif;
-  font-size: 80px;
+  font-size: 800px;
+  white-space: nowrap;
   font-weight: 100;
-  border-radius: 20px;
-  padding: 5px 20px;
+  border-radius: 100px;
+  padding: 3% 10%;
   color: #333;
   animation-name: card2TitleAnim;
 }
 @keyframes card2TitleAnim {
   0% {
     opacity: 0;
-    transform: scale(100);
+    transform: scale(1);
   }
   5% {
     opacity: 1;
-    transform: scale(100);
+    transform: scale(1);
   }
-  50% {
-    transform: scale(5);
+  40% {
     background-color: rgba(255, 255, 255, 0);
   }
+  50% {
+    transform: scale(0.3);
+  }
   59% {
-    transform: scale(1);
-    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(0.1);
     box-shadow: none;
   }
   60% {
-    transform: scale(1);
-    box-shadow: 2px 2px 5px #666;
+    transform: scale(0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 20px 20px 50px #666;
   }
   100% {
-    transform: scale(1);
+    transform: scale(0.1);
     background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 2px 2px 5px #666;
+    box-shadow: 20px 20px 50px #666;
   }
 }
