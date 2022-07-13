@@ -15,12 +15,14 @@ let lastWheelY = 0
 const delay = (time) => new Promise((resolve) => setTimeout(resolve, time))
 
 const onScroll = (e) => {
+  mainDom.scrollLeft = 0
   const current = mainDom.scrollTop
   if (lastWheelY === current) {
     return
   }
   lastWheelY = current
-  // console.log('scroll', mainDom.scrollHeight, mainDom.scrollTop)
+  // console.log('scroll', mainDom.scrollHeight, mainDom.scrollTop, mainDom.scrollWidth, mainDom.scrollLeft)
+  // console.log(e.deltaX, e.deltaY)
 
   for (const el of parallaxElements) {
     if (current < el.from) {
