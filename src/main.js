@@ -7,7 +7,7 @@ import throttle from 'js-math-and-ui-utils/jsUtils/throttle'
 
 
 const MAX_DELAY = 100 // seconds
-const FPS = 50
+const FPS = 45
 
 let mainDom, parallaxElements
 let lastWheelY = 0
