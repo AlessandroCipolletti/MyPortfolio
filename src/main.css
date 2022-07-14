@@ -236,11 +236,11 @@ main > img.blob {
     background-color: rgba(61, 61, 61, 0.8);
     top: 100vh;
   }
-  calc(1 * 100% / 3.5) {
+  calc(1 * 100% / 3.75) {
     top: 0vh;
     background-color: rgba(255, 255, 255, 0);
   }
-  calc(2.5 * 100% / 3.5) {
+  calc(2.75 * 100% / 3.75) {
     top: 0vh;
   }
   100% {
@@ -284,10 +284,10 @@ main > img.blob {
   0% {
     transform: scale(1.5);
   }
-  calc(1 * 100% / 3.5) {
+  calc(1 * 100% / 3.75) {
     transform: scale(1);
   }
-  calc(2.5 * 100% / 3.5) {
+  calc(2.75 * 100% / 3.75) {
     transform-origin: center top;
     transform: scale(1);
   }
@@ -299,6 +299,7 @@ main > img.blob {
 .card3Title1 {
   position: absolute;
   top: 15px;
+  left: 50%;
   font-family: sans-serif;
   font-size: 80px;
   white-space: nowrap;
@@ -313,10 +314,54 @@ main > img.blob {
 @keyframes card3Title1Anim {
   0% {
     opacity: 0;
-    transform: translate3d(0%, -100%, 0px);
+    transform: translate3d(-50%, -100%, 0px);
   }
   100% {
     opacity: 1;
-    transform: translate3d(0%, 0%, 0px);
+    transform: translate3d(-50%, 0%, 0px);
+  }
+}
+
+.card3Title2 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: calc(100% - 30px);
+  left: 50%;
+  border-radius: 10px;
+  padding: 1% 2%;
+  background-color: rgba(240, 240, 240, 0.95);
+  box-shadow: 2px 2px 5px #666;
+  z-index: 150;
+  animation-name: card3Title2Anim;
+}
+.card3Title2 h1 {
+  color: #333;
+  font-family: sans-serif;
+  font-size: 60px;
+  white-space: nowrap;
+  font-weight: 100;
+}
+.card3Title2 .logo {
+  width: 500px;
+  max-width: 95%;
+}
+@keyframes card3Title2Anim {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 0%, 0px);
+  }
+  calc(0.5 * 100% / 2) {
+    opacity: 1;
+    transform: translate3d(-50%, -100%, 0px);
+  }
+  calc(1 * 100% / 2) {
+    opacity: 1;
+    transform: translate3d(-50%, -100%, 0px) scale(1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translate3d(-50%, -150%, 0px) scale(0.6);
   }
 }
