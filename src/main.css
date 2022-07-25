@@ -22,6 +22,19 @@ main {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+.megaTitle {
+  position: absolute;
+  left: 50%;
+  font-family: sans-serif;
+  font-size: 80px;
+  white-space: nowrap;
+  font-weight: 100;
+  border-radius: 10px;
+  padding: 1% 2%;
+  background-color: rgba(61, 61, 61, 0.075);
+  box-shadow: 2px 2px 5px #888;
+  color: #333;
+}
 
 #scroller {
   position: relative;
@@ -58,21 +71,21 @@ main > img.blob {
 
 /* CARD 1 */
 .card1 {
-  animation-name: card1Anim;
+  /* animation-name: card1Anim; */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   transition: opacity 1s;
 }
-@keyframes card1Anim {
+/* @keyframes card1Anim {
   0% {
     top: 0vh;
   }
   100% {
     top: -100vh;
   }
-}
+} */
 .profilPic {
   width: 300px;
 }
@@ -298,18 +311,7 @@ main > img.blob {
 }
 
 .card3Title1 {
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  font-family: sans-serif;
-  font-size: 80px;
-  white-space: nowrap;
-  font-weight: 100;
-  border-radius: 10px;
-  padding: 1% 2%;
-  background-color: rgba(61, 61, 61, 0.075);
-  box-shadow: 2px 2px 5px #666;
-  color: #333;
+  top: 2.5%;
   animation-name: card3Title1Anim;
 }
 @keyframes card3Title1Anim {
@@ -333,7 +335,7 @@ main > img.blob {
   border-radius: 10px;
   padding: 1% 2%;
   background-color: rgba(240, 240, 240, 0.95);
-  box-shadow: 2px 2px 5px #666;
+  box-shadow: 2px 2px 5px #888;
   z-index: 150;
   animation-name: card3Title2Anim;
 }
@@ -378,10 +380,10 @@ main > img.blob {
   0% {
     top: 100vh;
   }
-  calc(1 * 100% / 3.5) {
+  calc(1 * 100% / 5.5) {
     top: 0vh;
   }
-  calc(2.5 * 100% / 3.5) {
+  calc(4.5 * 100% / 5.5) {
     top: 0vh;
   }
   100% {
@@ -389,26 +391,51 @@ main > img.blob {
   }
 }
 
-.card4 h1 {
-  font-size: 5em;
-  font-weight: 100;
+.card4Title {
+  animation-name: card4TitleAnim;
+  font-size: 60px;
+  transform: translate3d(-50%, 0%, 0px);
 }
-.projects {
-  border: solid 1px red;
+@keyframes card4TitleAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.portfolio {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  padding-left: 5%;
-  box-sizing: border-box;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  height: 100%;
+  margin-top: 100px;
+  position: relative;
 }
-.project {
-  display: inline-block;
-  margin: 3em;
-  flex-shrink: 0;
-  width: 200px;
-  height: 200px;
-  border: solid 1px blue;
+.portfolioElement {
+  animation-name: portfolioElementAnim;
+  width: 90%;
+  height: 70%;
+  font-size: 60px;
+  border: solid 1px red;
+  position: absolute;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0px);
+}
+@keyframes portfolioElementAnim {
+  0% {
+    opacity: 0;
+    top: 70%;
+  }
+  15% {
+    opacity: 1;
+    top: 55%;
+  }
+  85% {
+    opacity: 1;
+    top: 45%;
+  }
+  100% {
+    opacity: 0;
+    top: 30%;
+  }
 }

@@ -61,6 +61,22 @@ const initBlobs = () => {
 }
 
 const initScroll = () => {
+  // document.querySelector('section.card1').animate(
+  //   [
+  //     { top: '0px', offset: 0 },
+  //     { top: '-1000px', offset: 1 },
+  //   ],
+  //   { duration: 10000, // Totally arbitrary!
+  //     fill: 'both',
+  //     timeline: new ScrollTimeline({
+  //       scrollOffsets: [
+  //         CSS.px(0),
+  //         CSS.px(window.innerHeight),
+  //       ],
+  //     })
+  //   }
+  // )
+
   parallaxElements = Array.from(
     document.querySelectorAll('.parallax')
   ).map(el => ({
