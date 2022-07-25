@@ -230,6 +230,7 @@ main > img.blob {
   justify-content: space-evenly;
   align-items: center;
   padding-top: 150px;
+  padding-bottom: 75px;
 }
 @keyframes card3Anim {
   0% {
@@ -364,4 +365,50 @@ main > img.blob {
     opacity: 0.5;
     transform: translate3d(-50%, -150%, 0px) scale(0.6);
   }
+}
+
+
+/* CARD 4 */
+.card4 {
+  animation-name: card4Anim;
+  display: flex;
+  flex-direction: column;
+}
+@keyframes card4Anim {
+  0% {
+    top: 100vh;
+  }
+  calc(1 * 100% / 3.5) {
+    top: 0vh;
+  }
+  calc(2.5 * 100% / 3.5) {
+    top: 0vh;
+  }
+  100% {
+    top: -100vh;
+  }
+}
+
+.card4 h1 {
+  font-size: 5em;
+  font-weight: 100;
+}
+.projects {
+  border: solid 1px red;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-left: 5%;
+  box-sizing: border-box;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.project {
+  display: inline-block;
+  margin: 3em;
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  border: solid 1px blue;
 }
