@@ -530,25 +530,29 @@ main > img.blob {
   animation-play-state: running;
   animation-timing-function: ease-in-out;
   cursor: pointer;
+  transition: scale 0.2s;
+}
+.timeline > img:hover {
+  scale: 1.25;
 }
 @keyframes littleShake {
   0% {
-    transform: translate3d(0%, 0%, 0px);
+    transform: translate3d(0px, 0px, 0px);
   }
   20% {
     transform: translate3d(1px, 1px, 0px);
   }
   40% {
-    transform: translate3d(-1px, 1px, 0px);
+    transform: translate3d(-1px, 0px, 0px);
   }
   60% {
-    transform: translate3d(1px, 1px, 0px);
+    transform: translate3d(1px, -1px, 0px);
   }
   80% {
     transform: translate3d(-1px, 1px, 0px);
   }
   100% {
-    transform: translate3d(0%, 0%, 0px);
+    transform: translate3d(0px, 0px, 0px);
   }
 }
 .timeline > img.big {
@@ -573,7 +577,7 @@ main > img.blob {
 }
 .timeline .drawithme {
   grid-area: drawithme;
-  animation-delay: 0.1s;
+  animation-delay: 1s;
 }
 .timeline .pitchyTeam {
   grid-area: pitchyTeam;
@@ -581,11 +585,11 @@ main > img.blob {
 }
 .timeline .pitchySenior {
   grid-area: pitchySenior;
-  animation-delay: 0.3s;
+  animation-delay: 0.6s;
 }
 .timeline .rossel {
   grid-area: rossel;
-  animation-delay: 0.2s;
+  animation-delay: 0.4s;
 }
 .timeline .zenSistemi {
   grid-area: zenSistemi;
@@ -597,7 +601,7 @@ main > img.blob {
 }
 .timeline .inTact {
   grid-area: inTact;
-  animation-delay: 0.5s;
+  animation-delay: 1.3s;
 }
 .timeline .webPublication {
   grid-area: webPublication;
@@ -605,7 +609,7 @@ main > img.blob {
 }
 .timeline .fdj {
   grid-area: fdj;
-  animation-delay: 0.26s;
+  animation-delay: 0.3s;
 }
 .timeline .timelineItaly {
   grid-area: timeItaly;
