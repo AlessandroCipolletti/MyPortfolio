@@ -36,6 +36,23 @@ main {
   color: #333;
 }
 
+.socials {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  top: 0px;
+  right: 0px;
+  padding: 1em;
+  transition: opacity 1s;
+  z-index: 9999;
+}
+.socials img {
+  width: 3em;
+  height: 3em;
+  margin: 1em;
+  cursor: pointer;
+}
+
 #scroller {
   position: relative;
   display: flex;
@@ -71,23 +88,43 @@ main > img.blob {
 
 /* CARD 1 */
 .card1 {
-  /* animation-name: card1Anim; */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template: 
+    ". title hand ." 1fr
+    ". pic hand ." 2fr / 1fr 2fr 2fr 1fr;
   transition: opacity 1s;
 }
-/* @keyframes card1Anim {
-  0% {
-    top: 0vh;
-  }
-  100% {
-    top: -100vh;
-  }
-} */
+.card1TitleWrapper {
+  grid-area: title;
+  text-align: left;
+}
+.card1TitleWrapper h1 {
+  font-size: 5em;
+  font-family: sans-serif;
+  font-weight: 100;
+  color: #333;
+  margin-top: 1em;
+  margin-bottom: 0.1em;
+  text-wrap: nowrap;
+}
+.card1TitleWrapper h2 {
+  font-size: 2.5em;
+  font-family: sans-serif;
+  font-weight: 100;
+  color: #333;
+  margin-bottom: 30px;
+}
 .profilPic {
   width: 300px;
+  grid-area: pic;
+}
+
+.card1Hand {
+  grid-area: hand;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #hand {
   font-size: 100px;
@@ -114,7 +151,7 @@ main > img.blob {
     transform: none;
   }
 }
-.card1 h2 {
+.card1Hand h2 {
   font-size: 130px;
   font-family: 'Sacramento', cursive;
   margin-bottom: -30px;
@@ -210,11 +247,11 @@ main > img.blob {
   0% {
     opacity: 0;
     transform: scale(4);
-    color: #eee;
+    color: #fff;
   }
-  3% {
+  8% {
     opacity: 1;
-    transform: scale(4);
+    color: #fff;
   }
   70% {
     background-color: rgba(255, 255, 255, 0);
@@ -222,9 +259,11 @@ main > img.blob {
   80% {
     transform: scale(0.3);
   }
+  95% {
+    box-shadow: none;
+  }
   99% {
     transform: scale(0.1);
-    box-shadow: none;
   }
   100% {
     transform: scale(0.1);

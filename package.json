@@ -5,7 +5,10 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "rm -rf ./dist && parcel build --no-source-maps"
+    "build": "rm -rf ./dist && parcel build --no-source-maps",
+    "lint": "eslint --ext js, -c .eslintrc.json src",
+    "lint:quiet": "eslint --ext js, -c .eslintrc.json src --quiet",
+    "lint:fix": "eslint --ext js, -c .eslintrc.json src --fix"
   },
   "repository": {
     "type": "git",
@@ -29,7 +32,7 @@
     "parcel": "latest"
   },
   "dependencies": {
-    "js-math-and-ui-utils": "^1.1.21",
+    "js-math-and-ui-utils": "^1.2.8",
     "mobile-device-detect": "^0.4.3"
   }
 }

@@ -51,7 +51,7 @@ const initBlobs = () => {
       { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 0.50 },
       { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 0.75 },
       { top: `${getRandomNumber(5, 95, 0)}%`, left: `${getRandomNumber(10, 90, 0)}%`, transform: `translate3d(-50%, -50%, 0px) rotate(${getRandomNumber(-30, 30, 0)}deg)`, offset: 1 },
-    ], getRandomNumber(120, 160, 0) * 1000, {
+    ], getRandomNumber(100, 150, 0) * 1000, {
       iterations: Infinity,
       direction: 'alternate',
       easing: 'linear',
@@ -104,6 +104,7 @@ const init = async() => {
 
   await delay(500)
   document.querySelector('.card1').classList.remove('transparent')
+  document.querySelector('.socials').classList.remove('transparent')
 }
 
 document.onreadystatechange = () => {

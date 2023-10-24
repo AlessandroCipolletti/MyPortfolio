@@ -6,7 +6,7 @@
         {
           "root": ["./src"],
           "alias": {
-            "src": "./src",
+            "src": "./src"
           }
         }
       ]
