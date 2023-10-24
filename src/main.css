@@ -434,14 +434,15 @@ main > img.blob {
 .card4Title {
   animation-name: card4TitleAnim;
   font-size: 60px;
-  transform: translate3d(-50%, 0%, 0px);
 }
 @keyframes card4TitleAnim {
   0% {
     opacity: 0;
+    transform: translate3d(-50%, 0%, 0px) scale(1);
   }
   100% {
     opacity: 1;
+    transform: translate3d(-50%, 0%, 0px) scale(0.5);
   }
 }
 
@@ -487,8 +488,9 @@ main > img.blob {
   width: 100%;
   height: 100%;
   display: grid;
+  z-index: 10;
   grid-template: 
-    "title title title title title title title title title title title title" 2fr
+    "title title title title title title title title title title title title" 1.5fr
     "startupper . . . . . . . . drawithme drawithme ." 1fr
     "teamlead . . . . . . . pitchyTeam . rossel rossel" 1fr
     "senior . . . . . pitchySenior . . . . ." 1fr
@@ -496,8 +498,8 @@ main > img.blob {
     "senior . maxMara maxMara . . . . . . . ." 1fr
     ". . . . inTact . . . . . . ." 1fr
     "webdev zenSistemi zenSistemi fdj fdj . . . . . . ." 1fr 
-    ". timeItaly . timeParis timeParis . . . timeBxl . . timeNow" 30px
-    ". italy . paris paris . . . bxl . . parisNow" 30px / 1.75fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    ". timeItaly . timeParis timeParis . . . timeBxl . . timeNow" 50px
+    ". italy . paris paris . . . bxl . . parisNow" 25px / 2.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .timeline > * {
   align-self: center;
@@ -515,58 +517,95 @@ main > img.blob {
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
+  align-self: end;
   /* white-space: nowrap; */
 }
 .timeline > img {
   max-height: 27px;
   max-width: 150px;
   justify-self: center;
+  animation-name: littleShake;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  cursor: pointer;
+}
+@keyframes littleShake {
+  0% {
+    transform: translate3d(0%, 0%, 0px);
+  }
+  20% {
+    transform: translate3d(1px, 1px, 0px);
+  }
+  40% {
+    transform: translate3d(-1px, 1px, 0px);
+  }
+  60% {
+    transform: translate3d(1px, 1px, 0px);
+  }
+  80% {
+    transform: translate3d(-1px, 1px, 0px);
+  }
+  100% {
+    transform: translate3d(0%, 0%, 0px);
+  }
 }
 .timeline > img.big {
   max-height: 37px;
 }
+
 .timeline .startupper {
   grid-area: startupper;
-  text-align: left;
 }
 .timeline .senior {
   grid-area: senior;
-  text-align: left;
 }
 .timeline .webdev {
   grid-area: webdev;
-  text-align: left;
 }
 .timeline .teamlead {
   grid-area: teamlead;
+}
+.timeline .role {
+  align-self: center;
   text-align: left;
 }
 .timeline .drawithme {
   grid-area: drawithme;
+  animation-delay: 0.1s;
 }
 .timeline .pitchyTeam {
   grid-area: pitchyTeam;
+  animation-delay: 0.8s;
 }
 .timeline .pitchySenior {
   grid-area: pitchySenior;
+  animation-delay: 0.3s;
 }
 .timeline .rossel {
   grid-area: rossel;
+  animation-delay: 0.2s;
 }
 .timeline .zenSistemi {
   grid-area: zenSistemi;
+  animation-delay: 0.9s;
 }
 .timeline .maxMara {
   grid-area: maxMara;
+  animation-delay: 0.2s;
 }
 .timeline .inTact {
   grid-area: inTact;
+  animation-delay: 0.5s;
 }
 .timeline .webPublication {
   grid-area: webPublication;
+  animation-delay: 0.7s;
 }
 .timeline .fdj {
   grid-area: fdj;
+  animation-delay: 0.26s;
 }
 .timeline .timelineItaly {
   grid-area: timeItaly;
