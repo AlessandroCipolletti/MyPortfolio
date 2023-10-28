@@ -494,7 +494,7 @@ main > img.blob {
   grid-area: title;
 }
 .portfolioElement > span {
-  font-size: 1.5em;
+  font-size: 1.7em;
   font-weight: bold;
   text-align: center;
   align-self: center;
@@ -665,7 +665,8 @@ main > img.blob {
 
 .skills .stars {
   text-align: left;
-  font-size: 35px;
+  font-size: 3.5em;
+  padding-right: 0.5em;
 }
 .fiveStars {
   grid-area: fiveStars;
@@ -681,6 +682,7 @@ main > img.blob {
 .threeStarsSkills {
   display: flex;
   flex-wrap: wrap;
+  padding: 12px 0px;
 }
 .fiveStarsSkills {
   grid-area: fiveStarsSkills;
