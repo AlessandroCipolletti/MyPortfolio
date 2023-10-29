@@ -91,7 +91,7 @@ main > img.blob {
   display: grid;
   grid-template: 
     ". title hand ." 1fr
-    ". pic hand ." 2fr / 1fr 2fr 2fr 1fr;
+    ". pic hand ." 3fr / 1fr 3fr 2fr 1fr;
   transition: opacity 1s;
 }
 .card1TitleWrapper {
@@ -115,7 +115,7 @@ main > img.blob {
   margin-bottom: 30px;
 }
 .profilPic {
-  width: 300px;
+  width: 400px;
   grid-area: pic;
 }
 
