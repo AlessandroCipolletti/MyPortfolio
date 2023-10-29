@@ -4,6 +4,7 @@
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
+  color: #333;
 }
 body {
   overflow: hidden;
@@ -34,6 +35,29 @@ main {
   background-color: rgba(61, 61, 61, 0.075);
   box-shadow: 2px 2px 5px #888;
   color: #333;
+}
+
+
+/* .withTooltip {
+  position: relative;
+} */
+.withTooltip:before {
+  content: attr(data-text);
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left: 100%;
+  margin-left:15px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  display: none;
+}
+.withTooltip:before {
+  display: block;
 }
 
 .socials {
@@ -449,7 +473,7 @@ main > img.blob {
 .portfolio {
   max-width: 90%;
   width: 1100px;
-  height: calc(100% - 120px);
+  height: calc(100% - 200px);
   margin: auto;
   margin-top: 100px;
   position: relative;
@@ -462,6 +486,12 @@ main > img.blob {
   left: 50%;
   display: none;
   transform: translate3d(-50%, -50%, 0px);
+  /* 
+  border-radius: 15px;
+  padding: 20px;
+  background-color: rgba(61, 61, 61, 0.075);
+  box-shadow: 2px 2px 5px #888;
+  */
 }
 .portfolioElement.ongoing {
   display: grid;
@@ -469,19 +499,19 @@ main > img.blob {
 @keyframes portfolioElementAnim {
   0% {
     opacity: 0;
-    top: 70%;
+    top: 75%;
   }
   15% {
     opacity: 1;
-    top: 55%;
+    top: 60%;
   }
   85% {
     opacity: 1;
-    top: 45%;
+    top: 50%;
   }
   100% {
     opacity: 0;
-    top: 30%;
+    top: 35%;
   }
 }
 .portfolioTitle {
@@ -503,11 +533,11 @@ main > img.blob {
 
 .timeline > img,
 .skills img {
-  animation-name: littleShake;
+  /* animation-name: littleShake;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-play-state: running;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out; */
   cursor: pointer;
   transition: scale 0.2s;
 }
@@ -518,7 +548,7 @@ main > img.blob {
 
 .timeline {
   grid-template: 
-    "title title title title title title title title title title title title" 1.5fr
+    "title title title title title title title title title title title title" 1fr
     "startupper . . . . . . . . drawithme drawithme ." 1fr
     "teamlead . . . . . . . pitchyTeam . rossel rossel" 1fr
     "senior . . . . . pitchySenior . . . . ." 1fr
@@ -644,14 +674,12 @@ main > img.blob {
   justify-self: end;
 }
 
-
 .skills {
   grid-template: 
-    "title title" 1fr
+    "title title" 0.7fr
     "fiveStars fiveStarsSkills" 1fr
     "fourStars fourStarsSkills" 1fr
-    "threeStars threeStarsSkills" 1fr
-    ". ." 1.5fr / 1fr 4fr;
+    "threeStars threeStarsSkills" 1fr / 1fr 4fr;
 }
 .skills > * {
   align-self: center;
@@ -660,8 +688,8 @@ main > img.blob {
   width: 60px;
   height: 60px;
   margin: 6px;
-  animation-delay: 0.2s;
 }
+
 
 .skills .stars {
   text-align: left;
