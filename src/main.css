@@ -52,7 +52,7 @@ main {
   background-color: rgba(245, 245, 245, 1);
   z-index: 10;
   white-space: nowrap;
-  padding: 7px 10px;
+  padding: 7px 12px;
   text-align: center;
   font-size: 1.6em;
   transform: translate3d(-50%, 10%, 0px);
@@ -448,10 +448,10 @@ main > img.blob {
   0% {
     top: 100vh;
   }
-  calc(1 * 100% / 5.5) {
+  calc(1 * 100% / 4) {
     top: 0vh;
   }
-  calc(4.5 * 100% / 5.5) {
+  calc(3 * 100% / 4) {
     top: 0vh;
   }
   100% {
@@ -729,7 +729,31 @@ main > img.blob {
   grid-area: threeStarsSkills;
 }
 
-
+.projects {
+  grid-template: 
+    "title" 1fr
+    "projects" 5fr / 1fr;
+}
+.projectsList {
+  grid-area: projects;
+  display: flex;
+  max-width: 100%;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.project {
+  height: 100%;
+  aspect-ratio: 1/1;
+  border: solid 1px red;
+  padding: 10%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
 
 /*
 @media screen and (orientation:portrait) {
