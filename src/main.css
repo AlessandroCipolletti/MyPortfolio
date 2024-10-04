@@ -26,7 +26,7 @@ main {
 .megaTitle {
   position: absolute;
   left: 50%;
-  font-size: 80px;
+  font-size: 64px;
   white-space: nowrap;
   font-weight: 100;
   border-radius: 10px;
@@ -34,6 +34,35 @@ main {
   background-color: rgba(61, 61, 61, 0.075);
   box-shadow: 2px 2px 5px #888;
   color: #333;
+}
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .megaTitle {
+    position: absolute;
+    left: 50%;
+    font-size: 32px;
+    white-space: wrap;
+    max-width: 90vw;
+    min-width: 70vw;
+
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+.desktop {
+  display: block;
+}
+.mobile {
+  display: none;
+}
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
 }
 
 
@@ -123,6 +152,17 @@ main > img.blob {
     ". pic hand ." 3fr / 1fr 3fr 2fr 1fr;
   transition: opacity 1s;
 }
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .card1 {
+    padding: 5%;
+    padding-bottom: 20%;
+    grid-template: 
+      "title" 2fr
+      "pic" 3fr
+      "hand" 3fr / 1fr;
+  }
+}
+
 .card1TitleWrapper {
   grid-area: title;
   text-align: left;
@@ -146,6 +186,12 @@ main > img.blob {
 .profilPic {
   width: 400px;
   grid-area: pic;
+}
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .profilPic {
+    width: 50%;
+    margin: auto;
+  }
 }
 
 .card1Hand {
@@ -184,6 +230,12 @@ main > img.blob {
   font-size: 130px;
   font-family: 'Sacramento', Arial, Helvetica, sans-serif;
   margin-bottom: -30px;
+}
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .card1Hand h2 {
+    font-size: 80px;
+    margin-bottom: 0px;
+  }
 }
 
 /* CARD 2 */
@@ -269,8 +321,15 @@ main > img.blob {
   white-space: nowrap;
   font-weight: 100;
   border-radius: 100px;
-  padding: 3% 10%;
+  padding: 10% 20%;
   animation-name: card2TitleAnim;
+}
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .card2Title {
+    font-size: 400px;
+    line-height: 800px;
+    padding: 10% 40%;
+  }
 }
 @keyframes card2TitleAnim {
   0% {
@@ -295,7 +354,7 @@ main > img.blob {
     transform: scale(0.1);
   }
   100% {
-    transform: scale(0.1);
+    transform: scale(0.08);
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 20px 20px 50px #666;
     color: #333;
@@ -312,6 +371,11 @@ main > img.blob {
   align-items: center;
   padding-top: 150px;
   padding-bottom: 75px;
+}
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .card3 {
+    flex-direction: column;
+  }
 }
 @keyframes card3Anim {
   0% {
@@ -339,6 +403,12 @@ main > img.blob {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .ipadWrapper {
+    width: 100%;
+    height: 40%;
+  }
 }
 .ipadWrapper img,
 .ipadWrapper video {
@@ -380,6 +450,9 @@ main > img.blob {
 
 .card3Title1 {
   top: 2.5%;
+  z-index: 150;
+  background-color: rgba(240, 240, 240, 0.95);
+  box-shadow: 2px 2px 5px #888;
   animation-name: card3Title1Anim;
 }
 @keyframes card3Title1Anim {
@@ -398,14 +471,16 @@ main > img.blob {
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: calc(100% - 30px);
+  /* top: calc(100% - 30px); */
+  top: 2.5%;
   left: 50%;
   border-radius: 10px;
   padding: 1% 2%;
   background-color: rgba(240, 240, 240, 0.95);
   box-shadow: 2px 2px 5px #888;
   z-index: 150;
-  animation-name: card3Title2Anim;
+  max-width: 90vw;
+  animation-name: card3Title1Anim;
 }
 .card3Title2 h1 {
   color: #333;
@@ -413,6 +488,11 @@ main > img.blob {
   font-size: 60px;
   white-space: nowrap;
   font-weight: 100;
+}
+@media ((hover: none) and (pointer: coarse)) or (max-width: 600px) {
+  .card3Title2 h1 {
+    font-size: 32px;
+  }
 }
 .card3Title2 .logo {
   width: 500px;
@@ -481,7 +561,7 @@ main > img.blob {
   height: 100%;
   margin: auto;
   margin-top: 100px;
-  margin-bottom: 40px;
+  margin-bottom: 70px;
   position: relative;
 }
 .portfolioElement {
@@ -737,27 +817,41 @@ main > img.blob {
 }
 .projectsList {
   grid-area: projects;
+  flex-grow: 0;
+  /* border: solid 1px red; */
   display: flex;
-  max-width: 100%;
+  aspect-ratio: 2.1;
   overflow-x: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 20px;
+  padding: 20px 5px;
 }
 .project {
+  padding: 2.5%;
   height: 100%;
   aspect-ratio: 1/1;
-  padding: 2.5%;
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
-  scroll-snap-align: center;
+  scroll-snap-align: end;
   scroll-snap-stop: always;
   border-radius: 3%;
   margin-left: 5%;
   background-color: rgba(61, 61, 61, 0.075);
   box-shadow: 2px 2px 5px #888;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.project:hover {
+  /* scale: 1.03; */
+  /* transform: scale(1.03); */
+}
+.project:hover img {
+  scale: 1.1;
+}
+.project img {
+  transition: all 0.2s;
 }
 .project:first-child {
   margin-left: 0px;
@@ -772,13 +866,13 @@ main > img.blob {
   font-size: 1.5vh;
 }
 .drawithMeProject img {
-  width: 60%;
+  width: 50%;
   margin-bottom: 1em;
 }
 .drawithMeProject span {
   font-style: italic;
   font-family: 'Sacramento', Arial, Helvetica, sans-serif;
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: 100;
   margin-top: 0.5em;
   display: block;

@@ -105,6 +105,14 @@ const init = async() => {
   await delay(500)
   document.querySelector('.card1').classList.remove('transparent')
   document.querySelector('.socials').classList.remove('transparent')
+  // document.querySelector('.projectsList').addEventListener('scroll', (e) => {
+  //   console.log('scroll', e.target.scrollLeft, e.target.scrollWidth)
+  //   e.preventDefault()
+  // })
+  // document.querySelector('.projectsList').addEventListener('wheel', (e) => {
+  //   console.log('wheel', e)
+  //   e.preventDefault()
+  // })
 }
 
 document.onreadystatechange = () => {
